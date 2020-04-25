@@ -18,7 +18,11 @@ public class PlayerController : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
+                
+    }
 
+    void FixedUpdate()
+    {
         float h = Input.GetAxis("Horizontal");
 
         rb2d.AddForce(Vector2.right * speed * h);
@@ -28,7 +32,7 @@ public class PlayerController : MonoBehaviour{
             rb2d.velocity = new Vector2(maxSpeed, rb2d.velocity.y);
         }
 
-        if (rb2d.velocity.x > -maxSpeed)
+        if (rb2d.velocity.x < -maxSpeed)
         {
             rb2d.velocity = new Vector2(-maxSpeed, rb2d.velocity.y);
         }
